@@ -1,15 +1,15 @@
 @page
 @model IndexModel
 @{
-    ViewData["Title"] = ".NET Pizza Co.";
+    ViewData["Title"] = "Contoso Merchandise Co.";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Let's Eat Some Pizza!</h1>
+    <h1 class="display-4">Grab these great deals!</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-Our pizzas are hot, hot, hot!!
+Our products are hot, hot, hot!!
 
 <div style="color: #D8000C; background-color: #FFBABA">
   @Model.ErrorMessage
@@ -18,20 +18,20 @@ Our pizzas are hot, hot, hot!!
 <table class="table">
    <thead>
       <tr>
-         <th>Pizza Name</th>
-         <th>Ingredients</th>
+         <th>Product Name</th>
+         <th>Description</th>
          <th>Cost</th>
          <th>In Stock</th>
       </tr>
    </thead>
    <tbody>
-      @foreach (var pizza in @Model.Pizzas)
+      @foreach (var product in @Model.Products)
       {
          <tr>
-            <td>@pizza.PizzaName</td>
-            <td>@pizza.Ingredients</td>
-            <td>$@pizza.Cost</td>
-            <td>@pizza.InStock</td>
+            <td>@product.ProductName</td>
+            <td>@product.Description</td>
+            <td>$@product.Cost</td>
+            <td>@product.InStock</td>
          </tr>
       }
    </tbody>

@@ -11,7 +11,7 @@ namespace frontend.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        public PizzaInfo[] Pizzas { get; set; }
+        public ProductInfo[] Products { get; set; }
 
         public string ErrorMessage {get;set;}
         
@@ -20,11 +20,11 @@ namespace frontend.Pages
             _logger = logger;
         }
 
-        public async Task OnGet([FromServices]PizzaClient client)
+        public async Task OnGet([FromServices]ProductClient client)
         {
-            Pizzas = await client.GetPizzasAsync();
+            Products = await client.GetProductsAsync();
             
-            if(Pizzas.Count()==0)
+            if(Products.Count()==0)
                 ErrorMessage="We must be sold out. Try again tomorrow.";
             else
                 ErrorMessage = string.Empty;

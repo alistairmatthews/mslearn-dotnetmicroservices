@@ -2,13 +2,13 @@ using System;
 
 namespace frontend
 {
-    public class PizzaInfo
+    public class ProductInfo
     {
-        public string PizzaName { get; set; }
+        public string ProductName { get; set; }
 
         public int Cost { get; set; }
 
-        public string Ingredients { get; set; }
+        public string Description { get; set; }
 
         public string InStock { get; set; }
     }

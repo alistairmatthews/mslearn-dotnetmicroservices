@@ -26,7 +26,7 @@ namespace frontend
         {
             services.AddRazorPages();
 
-            services.AddHttpClient<PizzaClient>(client => 
+            services.AddHttpClient<ProductClient>(client => 
             {
                 var baseAddress = new Uri(Configuration.GetValue<string>("backendUrl"));
 
