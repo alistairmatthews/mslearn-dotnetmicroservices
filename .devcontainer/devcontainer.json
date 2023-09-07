@@ -1,0 +1,54 @@
+{
+    "name": "Build your first microservice in .NET",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "IMAGE": "dotnet:8.0-preview"
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/docker-from-docker:1": {
+            "version": "20.10"
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {
+            "version": "2"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.vscode-node-azure-pack",
+                "github.vscode-github-actions",
+                "GitHub.copilot-nightly",
+                "GitHub.vscode-github-actions",
+                "ms-dotnettools.vscode-dotnet-runtime",
+                "ms-dotnettools.csdevkit",
+                "ms-dotnetools.csharp"
+            ]
+        }
+    },
+    "forwardPorts": [
+        5902,
+        5900
+    ],
+    "onCreateCommand": "bash ${containerWorkspaceFolder}/.devcontainer/library-scripts/dotnet-install.sh --channel 8.0 -quality preview -installdir ${containerWorkspaceFolder}/.dotnet",
+    "postCreateCommand": "dotnet restore",
+    "remoteUser": "vscode",
+    "hostRequirements": {
+        "memory": "8gb",
+        "cpus": 4
+    },
+    "remoteEnv": {
+        "PATH": "${containerWorkspaceFolder}/.dotnet:${containerEnv:PATH}",
+		"DOTNET_MULTILEVEL_LOOKUP": "0",
+		"TARGET": "net8.0"
+    },
+    "portsattributes": {
+        "5902": {
+            "label": "eShop Back End"
+        },
+        "5900": {
+            "label": "eShop Front End"
+        }
+    }
+}
