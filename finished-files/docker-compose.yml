@@ -3,7 +3,7 @@ version: '3.4'
 services: 
 
   frontend:
-    image: productsfrontend
+    image: productfrontend
     build:
       context: frontend
       dockerfile: Dockerfile
@@ -14,7 +14,7 @@ services:
     depends_on: 
       - backend
   backend:
-    image: productsbackend
+    image: productbackend
     build: 
       context: backend
       dockerfile: Dockerfile
